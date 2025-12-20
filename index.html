@@ -8,6 +8,7 @@
         /* --- APPLE AESTHETIC CSS --- */
         :root {
             --bg-dark: #000000;
+            --bg-grey: #151516; /* "Black but not black" */
             --bg-light: #f5f5f7;
             --text-dark: #1d1d1f;
             --text-light: #f5f5f7;
@@ -47,7 +48,7 @@
 
         .nav-content {
             width: 100%;
-            max-width: 980px;
+            max-width: 1100px;
             display: flex;
             justify-content: space-between;
             padding: 0 20px;
@@ -68,34 +69,35 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
+            background: var(--bg-dark);
         }
 
         .hero h1 {
-            font-size: 56px;
-            line-height: 1.07;
-            letter-spacing: -0.005em;
+            font-size: 96px; /* BIGGER FONT */
+            line-height: 1.05;
+            letter-spacing: -0.015em;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(50px);
             animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
         }
 
         .hero h2 {
-            font-size: 28px;
+            font-size: 32px;
             line-height: 1.1;
             font-weight: 400;
             color: #86868b;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(50px);
             animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
         }
 
         .cta-button {
             background-color: var(--accent);
             color: white;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 980px;
             font-size: 17px;
             transition: transform 0.2s ease;
@@ -108,34 +110,34 @@
         .statement {
             background-color: var(--bg-light);
             color: var(--text-dark);
-            padding: 150px 20px;
+            padding: 200px 20px;
             text-align: center;
         }
         .statement-text {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
-            font-size: 48px;
+            font-size: 56px;
             font-weight: 600;
-            line-height: 1.1;
+            line-height: 1.05;
+            letter-spacing: -0.015em;
         }
         .highlight { color: #86868b; }
 
-        /* --- NEW PROJECTS SECTION (STICKY PARALLAX) --- */
-        .projects-wrapper {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            padding-bottom: 150px;
+        /* --- SHARED STICKY LAYOUT STYLES --- */
+        .sticky-wrapper {
+            padding: 100px 0 200px 0;
+            position: relative;
+            z-index: 10;
         }
 
         .sticky-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             position: relative;
         }
 
-        /* The Sticky Sidebar */
-        .project-sidebar {
+        .sidebar {
             width: 300px;
             height: 100vh;
             position: sticky;
@@ -143,24 +145,83 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-left: 20px;
-            /* Hide on mobile */
-            display: flex; 
+            padding: 20px;
         }
 
-        .sidebar-item {
+        .content-list {
+            flex: 1;
+            padding: 100px 40px;
+        }
+
+        .scroll-item {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 100px;
+            opacity: 0.1; /* Strong fade out for inactive items */
+            transform: scale(0.9) translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: blur(2px); /* Blur inactive items slightly */
+        }
+
+        .scroll-item.in-view {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            filter: blur(0px);
+        }
+
+        /* --- EXPERIENCE SECTION (DARK GREY, STICKY RIGHT) --- */
+        .experience-section {
+            background-color: var(--bg-grey);
+            color: var(--text-light);
+        }
+
+        /* Reverse order for Right-Side Sticky */
+        .experience-section .sticky-container {
+            flex-direction: row-reverse; 
+        }
+
+        .exp-sidebar-item {
+            font-size: 21px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-align: right; /* Align text to right near the content */
+            border-right: 2px solid transparent;
+            padding-right: 20px;
+        }
+
+        .exp-sidebar-item.active {
+            color: #fff;
+            border-right: 2px solid #fff;
+            padding-right: 30px; /* Animate movement */
+        }
+
+        .exp-role { font-size: 40px; font-weight: 700; margin-bottom: 10px; }
+        .exp-company { font-size: 24px; color: #86868b; margin-bottom: 20px; }
+        .exp-desc { font-size: 19px; line-height: 1.5; color: #d2d2d7; max-width: 600px; }
+        
+        /* --- PROJECTS SECTION (LIGHT, STICKY LEFT) --- */
+        .projects-section {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .proj-sidebar-item {
             font-size: 24px;
             font-weight: 600;
-            color: #d2d2d7; /* Inactive Color */
+            color: #d2d2d7;
             margin-bottom: 20px;
             cursor: pointer;
             transition: all 0.4s ease;
             position: relative;
             padding-left: 20px;
         }
-
-        /* The little active line indicator */
-        .sidebar-item::before {
+        
+        .proj-sidebar-item::before {
             content: '';
             position: absolute;
             left: 0;
@@ -173,130 +234,62 @@
             border-radius: 2px;
         }
 
-        .sidebar-item.active {
-            color: var(--text-dark); /* Active Color */
-            transform: translateX(10px);
-        }
+        .proj-sidebar-item.active { color: var(--text-dark); padding-left: 30px; }
+        .proj-sidebar-item.active::before { height: 100%; }
 
-        .sidebar-item.active::before {
-            height: 100%;
-        }
-
-        /* The Scrolling Cards */
-        .project-list {
-            flex: 1;
-            padding: 100px 40px;
-        }
-
-        .project-card-wrapper {
-            height: 80vh; /* Make each card take up most of the screen height */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 50px;
-            opacity: 0.3; /* Dimmed by default */
-            transform: scale(0.95);
-            transition: all 0.6s ease;
-        }
-
-        .project-card-wrapper.in-view {
-            opacity: 1;
-            transform: scale(1);
-        }
-
+        /* Project Cards */
         .card {
             background: #fff;
             border-radius: 30px;
             overflow: hidden;
             width: 100%;
-            max-width: 600px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            height: 500px;
+            max-width: 650px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08); /* Deeper shadow */
+            height: 550px;
             display: flex;
             flex-direction: column;
         }
-
-        .card-content {
-            padding: 40px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card-category { font-size: 12px; font-weight: 600; color: #86868b; text-transform: uppercase; }
-        .card-title { font-size: 32px; font-weight: 600; margin-top: 10px; color: #1d1d1f; }
-        .card-desc { font-size: 17px; color: #1d1d1f; margin-top: 20px; }
-        
-        .card-image-placeholder {
-            width: 100%;
-            height: 200px;
-            background: #eee;
-            margin-top: auto;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #86868b;
-        }
+        .card-content { padding: 50px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-category { font-size: 13px; font-weight: 700; color: #86868b; text-transform: uppercase; letter-spacing: 0.05em; }
+        .card-title { font-size: 36px; font-weight: 600; margin-top: 10px; color: #1d1d1f; }
+        .card-desc { font-size: 19px; color: #1d1d1f; margin-top: 20px; line-height: 1.4; }
+        .card-image-placeholder { width: 100%; height: 220px; background: #eee; margin-top: auto; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #86868b; font-weight: 500; }
 
         /* --- TECH STACK --- */
         .tech-stack {
             background-color: #1d1d1f;
-            padding: 100px 20px;
+            padding: 150px 20px;
             text-align: center;
         }
-
-        .tech-title { font-size: 40px; margin-bottom: 60px; color: #f5f5f7; }
-
-        .tech-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .tech-pill {
-            border: 1px solid #424245;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 17px;
-            color: #f5f5f7;
-        }
+        .tech-title { font-size: 48px; margin-bottom: 60px; color: #f5f5f7; font-weight: 600; }
+        .tech-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; max-width: 900px; margin: 0 auto; }
+        .tech-pill { border: 1px solid #424245; padding: 12px 24px; border-radius: 30px; font-size: 19px; color: #f5f5f7; transition: background 0.3s; }
+        .tech-pill:hover { background: #333; }
 
         /* --- FOOTER --- */
-        footer {
-            background-color: var(--bg-light);
-            color: #86868b;
-            padding: 40px 20px;
-            font-size: 12px;
-            border-top: 1px solid #d2d2d7;
-        }
-        .footer-content {
-            max-width: 980px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-        }
+        footer { background-color: var(--bg-light); color: #86868b; padding: 50px 20px; font-size: 12px; border-top: 1px solid #d2d2d7; }
+        .footer-content { max-width: 980px; margin: 0 auto; display: flex; justify-content: space-between; }
 
         /* UTILS */
         @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { to { opacity: 1; } }
-        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        
+        .simple-reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
+        .simple-reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* --- MOBILE RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 40px; }
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 48px; }
             .statement-text { font-size: 32px; }
             
-            /* Disable sticky layout on mobile for better UX */
+            /* Disable sticky layout on mobile */
             .sticky-container { display: block; }
-            .project-sidebar { display: none; } /* Hide sidebar on mobile */
-            .project-list { padding: 40px 20px; }
-            .project-card-wrapper { height: auto; margin-bottom: 40px; opacity: 1; transform: none; }
+            .experience-section .sticky-container { flex-direction: column; }
+            
+            .sidebar { display: none; } /* Hide sidebars on mobile */
+            .content-list { padding: 40px 20px; }
+            .scroll-item { min-height: auto; margin-bottom: 80px; opacity: 1; transform: none; filter: none; }
+            .card { height: auto; min-height: 500px; }
         }
     </style>
 </head>
@@ -307,6 +300,7 @@
             <div class="logo">Your Name</div>
             <div class="nav-links">
                 <a href="#statement">About</a>
+                <a href="#experience">Experience</a>
                 <a href="#projects">Work</a>
                 <a href="mailto:your.email@example.com">Contact</a>
             </div>
@@ -316,30 +310,68 @@
     <header class="hero">
         <h1>Data Scientist.</h1>
         <h2>Turning raw data into actionable intelligence.</h2>
-        <a href="#projects" class="cta-button">View Projects</a>
+        <a href="#experience" class="cta-button">See My Journey</a>
     </header>
 
     <section id="statement" class="statement">
-        <div class="statement-text scroll-reveal">
+        <div class="statement-text simple-reveal">
             Complex problems require 
             <span class="highlight">elegant solutions.</span>
             I specialize in building scalable machine learning models that drive real business value.
         </div>
     </section>
 
-    <section id="projects" class="projects-wrapper">
+    <section id="experience" class="sticky-wrapper experience-section">
         <div class="sticky-container">
             
-            <div class="project-sidebar">
-                <div class="sidebar-item active" data-target="p1">01. Defect Detection</div>
-                <div class="sidebar-item" data-target="p2">02. Sentiment Engine</div>
-                <div class="sidebar-item" data-target="p3">03. Forecasting</div>
-                <div class="sidebar-item" data-target="p4">04. ETL Pipeline</div>
+            <div class="sidebar">
+                <div class="exp-sidebar-item active" data-target="e1">2023 — Present</div>
+                <div class="exp-sidebar-item" data-target="e2">2021 — 2023</div>
+                <div class="exp-sidebar-item" data-target="e3">2019 — 2021</div>
             </div>
 
-            <div class="project-list">
+            <div class="content-list">
                 
-                <div class="project-card-wrapper in-view" id="p1">
+                <div class="scroll-item in-view" id="e1">
+                    <div class="exp-role">Senior Data Scientist</div>
+                    <div class="exp-company">Tech Giant Corp.</div>
+                    <div class="exp-desc">
+                        Leading a team of 4 to deploy Large Language Model agents for customer support. Reduced ticket resolution time by 40%. Architected the RAG pipeline using Pinecone and LangChain.
+                    </div>
+                </div>
+
+                <div class="scroll-item" id="e2">
+                    <div class="exp-role">Machine Learning Engineer</div>
+                    <div class="exp-company">FinTech Solutions</div>
+                    <div class="exp-desc">
+                        Built fraud detection systems processing 10k transactions per second. Migrated legacy scikit-learn models to distributed training on AWS SageMaker.
+                    </div>
+                </div>
+
+                <div class="scroll-item" id="e3">
+                    <div class="exp-role">Data Analyst</div>
+                    <div class="exp-company">StartUp Inc.</div>
+                    <div class="exp-desc">
+                        Conducted A/B testing for product features. Created automated dashboards in Tableau that saved the marketing team 15 hours of manual reporting per week.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="sticky-wrapper projects-section">
+        <div class="sticky-container">
+            
+            <div class="sidebar">
+                <div class="proj-sidebar-item active" data-target="p1">01. Defect Detection</div>
+                <div class="proj-sidebar-item" data-target="p2">02. Sentiment Engine</div>
+                <div class="proj-sidebar-item" data-target="p3">03. Forecasting</div>
+            </div>
+
+            <div class="content-list">
+                
+                <div class="scroll-item in-view" id="p1">
                     <div class="card">
                         <div class="card-content">
                             <div>
@@ -352,7 +384,7 @@
                     </div>
                 </div>
 
-                <div class="project-card-wrapper" id="p2">
+                <div class="scroll-item" id="p2">
                     <div class="card">
                         <div class="card-content">
                             <div>
@@ -360,12 +392,12 @@
                                 <div class="card-title">Sentiment Analysis.</div>
                                 <div class="card-desc">Fine-tuned BERT models to analyze customer feedback across 3 languages.</div>
                             </div>
-                            <div class="card-image-placeholder">Architecture Diagram</div>
+                            <div class="card-image-placeholder">Architecture</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card-wrapper" id="p3">
+                <div class="scroll-item" id="p3">
                     <div class="card">
                         <div class="card-content">
                             <div>
@@ -378,26 +410,13 @@
                     </div>
                 </div>
 
-                <div class="project-card-wrapper" id="p4">
-                    <div class="card">
-                        <div class="card-content">
-                            <div>
-                                <div class="card-category">Data Engineering</div>
-                                <div class="card-title">ETL Pipeline.</div>
-                                <div class="card-desc">Serverless pipeline on AWS Lambda and Redshift processing 1TB of data daily.</div>
-                            </div>
-                            <div class="card-image-placeholder">Schema</div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
     <section class="tech-stack">
-        <h3 class="tech-title scroll-reveal">Technical Proficiency.</h3>
-        <div class="tech-grid scroll-reveal">
+        <h3 class="tech-title simple-reveal">Technical Proficiency.</h3>
+        <div class="tech-grid simple-reveal">
             <span class="tech-pill">Python</span>
             <span class="tech-pill">PyTorch</span>
             <span class="tech-pill">TensorFlow</span>
@@ -422,7 +441,7 @@
     </footer>
 
     <script>
-        // 1. Simple Reveal Animation for General Sections
+        // 1. Simple Reveal for non-parallax sections
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -431,24 +450,34 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.scroll-reveal').forEach((el) => {
+        document.querySelectorAll('.simple-reveal').forEach((el) => {
             revealObserver.observe(el);
         });
 
-        // 2. Sticky Sidebar Logic (The "Parallax" Spy)
-        // This detects which card is currently in the center of the screen
-        const projectCards = document.querySelectorAll('.project-card-wrapper');
-        const sidebarItems = document.querySelectorAll('.sidebar-item');
-
-        const projectObserver = new IntersectionObserver((entries) => {
+        // 2. Parallax/Scrollspy Logic
+        // We reuse the same logic for both "Experience" and "Projects" sections
+        // because they use the same structure: .scroll-item and sidebar items with data-target
+        
+        const scrollItems = document.querySelectorAll('.scroll-item');
+        
+        const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // 1. Highlight the Card (make it opaque)
-                    projectCards.forEach(c => c.classList.remove('in-view'));
+                    // Activate Content
+                    // We remove in-view from siblings within the same parent, but simple looping is safer:
+                    // Find all items in THIS specific list container to toggle classes exclusively there
+                    const parent = entry.target.parentElement;
+                    const siblings = parent.querySelectorAll('.scroll-item');
+                    siblings.forEach(s => s.classList.remove('in-view'));
+                    
                     entry.target.classList.add('in-view');
 
-                    // 2. Update the Sidebar
+                    // Activate Sidebar Link
                     const id = entry.target.getAttribute('id');
+                    // Find the sidebar associated with this section (traverse up to section then down to sidebar)
+                    const section = entry.target.closest('section');
+                    const sidebarItems = section.querySelectorAll('.exp-sidebar-item, .proj-sidebar-item');
+                    
                     sidebarItems.forEach(item => {
                         item.classList.remove('active');
                         if (item.getAttribute('data-target') === id) {
@@ -458,15 +487,16 @@
                 }
             });
         }, { 
-            threshold: 0.6 // Trigger when 60% of the card is visible
+            rootMargin: '-20% 0px -20% 0px', // Shrink the "hit" area so transition happens closer to center
+            threshold: 0.5 
         });
 
-        projectCards.forEach(card => {
-            projectObserver.observe(card);
+        scrollItems.forEach(item => {
+            scrollObserver.observe(item);
         });
 
-        // 3. Click sidebar to scroll
-        sidebarItems.forEach(item => {
+        // 3. Click-to-scroll logic
+        document.querySelectorAll('.exp-sidebar-item, .proj-sidebar-item').forEach(item => {
             item.addEventListener('click', () => {
                 const targetId = item.getAttribute('data-target');
                 const targetEl = document.getElementById(targetId);
