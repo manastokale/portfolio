@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Scientist Portfolio</title>
+    <style>
+        /* --- APPLE AESTHETIC CSS --- */
+        :root {
+            --bg-dark: #000000;
+            --bg-light: #f5f5f7;
+            --text-dark: #1d1d1f;
+            --text-light: #f5f5f7;
+            --accent: #2997ff; /* Apple Blue */
+            --glass: rgba(0, 0, 0, 0.8);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 48px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-content {
+            width: 100%;
+            max-width: 980px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: 400;
+            color: #d6d6d6;
+        }
+
+        .nav-links a {
+            margin-left: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: #fff; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.07;
+            letter-spacing: -0.005em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            line-height: 1.1;
+            font-weight: 400;
+            color: #86868b;
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
+        }
+
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 17px;
+            transition: transform 0.2s ease;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.8s;
+        }
+
+        .cta-button:hover { transform: scale(1.02); }
+
+        /* --- BIG STATEMENT (White Section) --- */
+        .statement {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding: 150px 20px;
+            text-align: center;
+        }
+
+        .statement-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .highlight { color: #86868b; }
+
+        /* --- PROJECT GRID --- */
+        .projects {
+            background-color: var(--bg-light);
+            padding: 50px 20px 150px;
+        }
+
+        .grid-container {
+            max-width: 980px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 30px;
+            overflow: hidden;
+            height: 500px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover { transform: scale(1.02); }
+
+        .card-content {
+            padding: 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-category {
+            font-size: 12px;
+            font-weight: 600;
+            color: #86868b;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-top: 10px;
+            color: #1d1d1f;
+        }
+
+        .card-desc {
+            font-size: 17px;
+            color: #1d1d1f;
+            margin-top: 20px;
+        }
+
+        .card-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #eee;
+            margin-top: auto;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #86868b;
+        }
+
+        /* --- TECH STACK (Dark Mode) --- */
+        .tech-stack {
+            background-color: #1d1d1f;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .tech-title {
+            font-size: 40px;
+            margin-bottom: 60px;
+            color: #f5f5f7;
+        }
+
+        .tech-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-pill {
+            border: 1px solid #424245;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 17px;
+            color: #f5f5f7;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--bg-light);
+            color: #86868b;
+            padding: 40px 20px;
+            font-size: 12px;
+            border-top: 1px solid #d2d2d7;
+        }
+
+        .footer-content {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* --- UTILS & ANIMATIONS --- */
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            .statement-text { font-size: 32px; }
+            .card { height: auto; min-height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Manas Tokale</div>
+            <div class="nav-links">
+                <a href="#statement">About</a>
+                <a href="#projects">Work</a>
+                <a href="mailto:your.email@example.com">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Data Scientist.</h1>
+        <h2>Turning raw data into actionable intelligence.</h2>
+        <a href="#projects" class="cta-button">View Projects</a>
+    </header>
+
+    <section id="statement" class="statement">
+        <div class="statement-text scroll-reveal">
+            Complex problems require 
+            <span class="highlight">elegant solutions.</span>
+            I specialize in building scalable machine learning models that drive real business value.
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="grid-container">
+            
+            <div class="card scroll-reveal">
+                <div class="card-content">
+                    <div>
+                        <div class="card-category">Computer Vision</div>
+                        <div class="card-title">Defect Detection System.</div>
+                        <div class="card-desc">Automated quality control using CNNs and PyTorch. Achieved 99.8% accuracy in real-time manufacturing environments.</div>
+                    </div>
+                    <div class="card-image-placeholder">Project Screenshot</div>
+                </div>
+            </div>
+
+            <div class="card scroll-reveal">
+                <div class="card-content">
+                    <div>
+                        <div class="card-category">NLP & LLMs</div>
+                        <div class="card-title">Sentiment Analysis Engine.</div>
+                        <div class="card-desc">Fine-tuned BERT models to analyze customer feedback across 3 languages, reducing churn by 15%.</div>
+                    </div>
+                    <div class="card-image-placeholder">Architecture Diagram</div>
+                </div>
+            </div>
+
+            <div class="card scroll-reveal">
+                <div class="card-content">
+                    <div>
+                        <div class="card-category">Predictive Analytics</div>
+                        <div class="card-title">Sales Forecasting.</div>
+                        <div class="card-desc">Time-series forecasting using XGBoost and ARIMA to predict quarterly inventory needs.</div>
+                    </div>
+                    <div class="card-image-placeholder">Data Visualization</div>
+                </div>
+            </div>
+
+            <div class="card scroll-reveal">
+                <div class="card-content">
+                    <div>
+                        <div class="card-category">Data Engineering</div>
+                        <div class="card-title">ETL Pipeline.</div>
+                        <div class="card-desc">Designed a serverless pipeline on AWS Lambda and Redshift processing 1TB of data daily.</div>
+                    </div>
+                    <div class="card-image-placeholder">Pipeline Schema</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="tech-stack">
+        <h3 class="tech-title scroll-reveal">Technical Proficiency.</h3>
+        <div class="tech-grid scroll-reveal">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">PyTorch</span>
+            <span class="tech-pill">TensorFlow</span>
+            <span class="tech-pill">SQL</span>
+            <span class="tech-pill">AWS</span>
+            <span class="tech-pill">Docker</span>
+            <span class="tech-pill">Tableau</span>
+            <span class="tech-pill">Scikit-learn</span>
+            <span class="tech-pill">Git</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 Manas Tokale. All rights reserved.</div>
+            <div>
+                <a href="#">LinkedIn</a> &nbsp;|&nbsp; 
+                <a href="#">GitHub</a> &nbsp;|&nbsp; 
+                <a href="#">Resume</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for the "Fade Up" Apple effect
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
