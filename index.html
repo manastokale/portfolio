@@ -11,16 +11,12 @@
             --bg-light: #f5f5f7;
             --text-dark: #1d1d1f;
             --text-light: #f5f5f7;
-            --accent: #2997ff; /* Apple Blue */
+            --accent: #2997ff;
             --glass: rgba(0, 0, 0, 0.8);
             --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -60,11 +56,7 @@
             color: #d6d6d6;
         }
 
-        .nav-links a {
-            margin-left: 24px;
-            transition: color 0.3s ease;
-        }
-
+        .nav-links a { margin-left: 24px; transition: color 0.3s ease; }
         .nav-links a:hover { color: #fff; }
 
         /* --- HERO SECTION --- */
@@ -110,17 +102,15 @@
             opacity: 0;
             animation: fadeIn 1s forwards 0.8s;
         }
-
         .cta-button:hover { transform: scale(1.02); }
 
-        /* --- BIG STATEMENT (White Section) --- */
+        /* --- STATEMENT --- */
         .statement {
             background-color: var(--bg-light);
             color: var(--text-dark);
             padding: 150px 20px;
             text-align: center;
         }
-
         .statement-text {
             max-width: 700px;
             margin: 0 auto;
@@ -128,35 +118,103 @@
             font-weight: 600;
             line-height: 1.1;
         }
-
         .highlight { color: #86868b; }
 
-        /* --- PROJECT GRID --- */
-        .projects {
+        /* --- NEW PROJECTS SECTION (STICKY PARALLAX) --- */
+        .projects-wrapper {
             background-color: var(--bg-light);
-            padding: 50px 20px 150px;
+            color: var(--text-dark);
+            padding-bottom: 150px;
         }
 
-        .grid-container {
-            max-width: 980px;
+        .sticky-container {
+            max-width: 1100px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            display: flex;
+            position: relative;
+        }
+
+        /* The Sticky Sidebar */
+        .project-sidebar {
+            width: 300px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 20px;
+            /* Hide on mobile */
+            display: flex; 
+        }
+
+        .sidebar-item {
+            font-size: 24px;
+            font-weight: 600;
+            color: #d2d2d7; /* Inactive Color */
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        /* The little active line indicator */
+        .sidebar-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 0%;
+            background-color: var(--text-dark);
+            transition: height 0.4s ease;
+            border-radius: 2px;
+        }
+
+        .sidebar-item.active {
+            color: var(--text-dark); /* Active Color */
+            transform: translateX(10px);
+        }
+
+        .sidebar-item.active::before {
+            height: 100%;
+        }
+
+        /* The Scrolling Cards */
+        .project-list {
+            flex: 1;
+            padding: 100px 40px;
+        }
+
+        .project-card-wrapper {
+            height: 80vh; /* Make each card take up most of the screen height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            opacity: 0.3; /* Dimmed by default */
+            transform: scale(0.95);
+            transition: all 0.6s ease;
+        }
+
+        .project-card-wrapper.in-view {
+            opacity: 1;
+            transform: scale(1);
         }
 
         .card {
             background: #fff;
             border-radius: 30px;
             overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             height: 500px;
-            position: relative;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            cursor: pointer;
+            display: flex;
+            flex-direction: column;
         }
-
-        .card:hover { transform: scale(1.02); }
 
         .card-content {
             padding: 40px;
@@ -166,26 +224,10 @@
             justify-content: space-between;
         }
 
-        .card-category {
-            font-size: 12px;
-            font-weight: 600;
-            color: #86868b;
-            text-transform: uppercase;
-        }
-
-        .card-title {
-            font-size: 32px;
-            font-weight: 600;
-            margin-top: 10px;
-            color: #1d1d1f;
-        }
-
-        .card-desc {
-            font-size: 17px;
-            color: #1d1d1f;
-            margin-top: 20px;
-        }
-
+        .card-category { font-size: 12px; font-weight: 600; color: #86868b; text-transform: uppercase; }
+        .card-title { font-size: 32px; font-weight: 600; margin-top: 10px; color: #1d1d1f; }
+        .card-desc { font-size: 17px; color: #1d1d1f; margin-top: 20px; }
+        
         .card-image-placeholder {
             width: 100%;
             height: 200px;
@@ -198,18 +240,14 @@
             color: #86868b;
         }
 
-        /* --- TECH STACK (Dark Mode) --- */
+        /* --- TECH STACK --- */
         .tech-stack {
             background-color: #1d1d1f;
             padding: 100px 20px;
             text-align: center;
         }
 
-        .tech-title {
-            font-size: 40px;
-            margin-bottom: 60px;
-            color: #f5f5f7;
-        }
+        .tech-title { font-size: 40px; margin-bottom: 60px; color: #f5f5f7; }
 
         .tech-grid {
             display: flex;
@@ -236,7 +274,6 @@
             font-size: 12px;
             border-top: 1px solid #d2d2d7;
         }
-
         .footer-content {
             max-width: 980px;
             margin: 0 auto;
@@ -244,30 +281,22 @@
             justify-content: space-between;
         }
 
-        /* --- UTILS & ANIMATIONS --- */
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
+        /* UTILS */
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
 
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition);
-        }
-
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mobile Responsive */
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 40px; }
             .statement-text { font-size: 32px; }
-            .card { height: auto; min-height: 400px; }
+            
+            /* Disable sticky layout on mobile for better UX */
+            .sticky-container { display: block; }
+            .project-sidebar { display: none; } /* Hide sidebar on mobile */
+            .project-list { padding: 40px 20px; }
+            .project-card-wrapper { height: auto; margin-bottom: 40px; opacity: 1; transform: none; }
         }
     </style>
 </head>
@@ -275,7 +304,7 @@
 
     <nav>
         <div class="nav-content">
-            <div class="logo">Manas Tokale</div>
+            <div class="logo">Your Name</div>
             <div class="nav-links">
                 <a href="#statement">About</a>
                 <a href="#projects">Work</a>
@@ -298,53 +327,71 @@
         </div>
     </section>
 
-    <section id="projects" class="projects">
-        <div class="grid-container">
+    <section id="projects" class="projects-wrapper">
+        <div class="sticky-container">
             
-            <div class="card scroll-reveal">
-                <div class="card-content">
-                    <div>
-                        <div class="card-category">Computer Vision</div>
-                        <div class="card-title">Defect Detection System.</div>
-                        <div class="card-desc">Automated quality control using CNNs and PyTorch. Achieved 99.8% accuracy in real-time manufacturing environments.</div>
-                    </div>
-                    <div class="card-image-placeholder">Project Screenshot</div>
-                </div>
+            <div class="project-sidebar">
+                <div class="sidebar-item active" data-target="p1">01. Defect Detection</div>
+                <div class="sidebar-item" data-target="p2">02. Sentiment Engine</div>
+                <div class="sidebar-item" data-target="p3">03. Forecasting</div>
+                <div class="sidebar-item" data-target="p4">04. ETL Pipeline</div>
             </div>
 
-            <div class="card scroll-reveal">
-                <div class="card-content">
-                    <div>
-                        <div class="card-category">NLP & LLMs</div>
-                        <div class="card-title">Sentiment Analysis Engine.</div>
-                        <div class="card-desc">Fine-tuned BERT models to analyze customer feedback across 3 languages, reducing churn by 15%.</div>
+            <div class="project-list">
+                
+                <div class="project-card-wrapper in-view" id="p1">
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-category">Computer Vision</div>
+                                <div class="card-title">Defect Detection System.</div>
+                                <div class="card-desc">Automated quality control using CNNs and PyTorch. Achieved 99.8% accuracy.</div>
+                            </div>
+                            <div class="card-image-placeholder">Screenshot</div>
+                        </div>
                     </div>
-                    <div class="card-image-placeholder">Architecture Diagram</div>
                 </div>
-            </div>
 
-            <div class="card scroll-reveal">
-                <div class="card-content">
-                    <div>
-                        <div class="card-category">Predictive Analytics</div>
-                        <div class="card-title">Sales Forecasting.</div>
-                        <div class="card-desc">Time-series forecasting using XGBoost and ARIMA to predict quarterly inventory needs.</div>
+                <div class="project-card-wrapper" id="p2">
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-category">NLP & LLMs</div>
+                                <div class="card-title">Sentiment Analysis.</div>
+                                <div class="card-desc">Fine-tuned BERT models to analyze customer feedback across 3 languages.</div>
+                            </div>
+                            <div class="card-image-placeholder">Architecture Diagram</div>
+                        </div>
                     </div>
-                    <div class="card-image-placeholder">Data Visualization</div>
                 </div>
-            </div>
 
-            <div class="card scroll-reveal">
-                <div class="card-content">
-                    <div>
-                        <div class="card-category">Data Engineering</div>
-                        <div class="card-title">ETL Pipeline.</div>
-                        <div class="card-desc">Designed a serverless pipeline on AWS Lambda and Redshift processing 1TB of data daily.</div>
+                <div class="project-card-wrapper" id="p3">
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-category">Predictive Analytics</div>
+                                <div class="card-title">Sales Forecasting.</div>
+                                <div class="card-desc">Time-series forecasting using XGBoost to predict quarterly inventory needs.</div>
+                            </div>
+                            <div class="card-image-placeholder">Data Viz</div>
+                        </div>
                     </div>
-                    <div class="card-image-placeholder">Pipeline Schema</div>
                 </div>
-            </div>
 
+                <div class="project-card-wrapper" id="p4">
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-category">Data Engineering</div>
+                                <div class="card-title">ETL Pipeline.</div>
+                                <div class="card-desc">Serverless pipeline on AWS Lambda and Redshift processing 1TB of data daily.</div>
+                            </div>
+                            <div class="card-image-placeholder">Schema</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -365,7 +412,7 @@
 
     <footer>
         <div class="footer-content">
-            <div>&copy; 2025 Manas Tokale. All rights reserved.</div>
+            <div>&copy; 2025 Your Name. All rights reserved.</div>
             <div>
                 <a href="#">LinkedIn</a> &nbsp;|&nbsp; 
                 <a href="#">GitHub</a> &nbsp;|&nbsp; 
@@ -375,24 +422,56 @@
     </footer>
 
     <script>
-        // Simple Intersection Observer for the "Fade Up" Apple effect
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        // 1. Simple Reveal Animation for General Sections
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Only animate once
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.scroll-reveal').forEach((el) => {
-            observer.observe(el);
+            revealObserver.observe(el);
+        });
+
+        // 2. Sticky Sidebar Logic (The "Parallax" Spy)
+        // This detects which card is currently in the center of the screen
+        const projectCards = document.querySelectorAll('.project-card-wrapper');
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+
+        const projectObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 1. Highlight the Card (make it opaque)
+                    projectCards.forEach(c => c.classList.remove('in-view'));
+                    entry.target.classList.add('in-view');
+
+                    // 2. Update the Sidebar
+                    const id = entry.target.getAttribute('id');
+                    sidebarItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('data-target') === id) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { 
+            threshold: 0.6 // Trigger when 60% of the card is visible
+        });
+
+        projectCards.forEach(card => {
+            projectObserver.observe(card);
+        });
+
+        // 3. Click sidebar to scroll
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const targetId = item.getAttribute('data-target');
+                const targetEl = document.getElementById(targetId);
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
         });
     </script>
 </body>
