@@ -8,7 +8,7 @@
         /* --- APPLE AESTHETIC CSS --- */
         :root {
             --bg-dark: #000000;
-            --bg-grey: #151516; /* "Black but not black" */
+            --bg-grey: #151516;
             --bg-light: #f5f5f7;
             --text-dark: #1d1d1f;
             --text-light: #f5f5f7;
@@ -44,6 +44,7 @@
             justify-content: center;
             align-items: center;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
         }
 
         .nav-content {
@@ -54,11 +55,17 @@
             padding: 0 20px;
             font-size: 12px;
             font-weight: 400;
-            color: #d6d6d6;
+            color: #888; /* Dimmed by default */
         }
 
         .nav-links a { margin-left: 24px; transition: color 0.3s ease; }
         .nav-links a:hover { color: #fff; }
+        
+        /* Active State for Nav Links */
+        .nav-links a.active-link {
+            color: #fff;
+            font-weight: 600;
+        }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -73,7 +80,7 @@
         }
 
         .hero h1 {
-            font-size: 96px; /* BIGGER FONT */
+            font-size: 96px;
             line-height: 1.05;
             letter-spacing: -0.015em;
             font-weight: 600;
@@ -123,22 +130,20 @@
         }
         .highlight { color: #86868b; }
 
-        /* --- SHARED STICKY LAYOUT STYLES --- */
+        /* --- SHARED STICKY LAYOUT --- */
         .sticky-wrapper {
             padding: 100px 0 200px 0;
             position: relative;
             z-index: 10;
         }
-
         .sticky-container {
-            max-width: 1200px;
+            max-width: 1400px; /* Wider for horizontal scrolling */
             margin: 0 auto;
             display: flex;
             position: relative;
         }
-
         .sidebar {
-            width: 300px;
+            width: 250px;
             height: 100vh;
             position: sticky;
             top: 0;
@@ -146,125 +151,127 @@
             flex-direction: column;
             justify-content: center;
             padding: 20px;
+            flex-shrink: 0;
         }
-
         .content-list {
             flex: 1;
             padding: 100px 40px;
+            min-width: 0; /* Prevent flex overflow issues */
         }
-
+        
+        /* The container for a single "Section" (e.g. Computer Vision) */
         .scroll-item {
-            min-height: 80vh;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin-bottom: 100px;
-            opacity: 0.1; /* Strong fade out for inactive items */
-            transform: scale(0.9) translateY(40px);
+            margin-bottom: 150px;
+            opacity: 0.1; 
+            transform: scale(0.95);
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            filter: blur(2px); /* Blur inactive items slightly */
+            filter: blur(2px);
         }
-
         .scroll-item.in-view {
             opacity: 1;
-            transform: scale(1) translateY(0);
+            transform: scale(1);
             filter: blur(0px);
         }
 
-        /* --- EXPERIENCE SECTION (DARK GREY, STICKY RIGHT) --- */
-        .experience-section {
-            background-color: var(--bg-grey);
-            color: var(--text-light);
-        }
-
-        /* Reverse order for Right-Side Sticky */
-        .experience-section .sticky-container {
-            flex-direction: row-reverse; 
-        }
-
+        /* --- EXPERIENCE (Vertical Cards) --- */
+        .experience-section { background-color: var(--bg-grey); color: var(--text-light); }
+        .experience-section .sticky-container { flex-direction: row-reverse; }
+        
         .exp-sidebar-item {
-            font-size: 21px;
-            font-weight: 600;
-            color: #555;
-            margin-bottom: 30px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            text-align: right; /* Align text to right near the content */
-            border-right: 2px solid transparent;
-            padding-right: 20px;
+            font-size: 21px; font-weight: 600; color: #555; margin-bottom: 30px; cursor: pointer;
+            transition: all 0.4s ease; text-align: right; border-right: 2px solid transparent; padding-right: 20px;
         }
-
-        .exp-sidebar-item.active {
-            color: #fff;
-            border-right: 2px solid #fff;
-            padding-right: 30px; /* Animate movement */
-        }
-
+        .exp-sidebar-item.active { color: #fff; border-right: 2px solid #fff; padding-right: 30px; }
+        
         .exp-role { font-size: 40px; font-weight: 700; margin-bottom: 10px; }
         .exp-company { font-size: 24px; color: #86868b; margin-bottom: 20px; }
         .exp-desc { font-size: 19px; line-height: 1.5; color: #d2d2d7; max-width: 600px; }
-        
-        /* --- PROJECTS SECTION (LIGHT, STICKY LEFT) --- */
-        .projects-section {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
+
+        /* --- PROJECTS (Horizontal Scrolling Groups) --- */
+        .projects-section { background-color: var(--bg-light); color: var(--text-dark); }
 
         .proj-sidebar-item {
-            font-size: 24px;
-            font-weight: 600;
-            color: #d2d2d7;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            padding-left: 20px;
+            font-size: 20px; font-weight: 600; color: #d2d2d7; margin-bottom: 20px; cursor: pointer;
+            transition: all 0.4s ease; position: relative; padding-left: 20px;
         }
-        
         .proj-sidebar-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 0%;
-            background-color: var(--text-dark);
-            transition: height 0.4s ease;
-            border-radius: 2px;
+            content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+            width: 4px; height: 0%; background-color: var(--text-dark); transition: height 0.4s ease; border-radius: 2px;
         }
-
         .proj-sidebar-item.active { color: var(--text-dark); padding-left: 30px; }
         .proj-sidebar-item.active::before { height: 100%; }
 
-        /* Project Cards */
-        .card {
+        /* Horizontal Scroller Container */
+        .project-category-title {
+            font-size: 32px; font-weight: 700; margin-bottom: 30px; color: #1d1d1f; display: none; /* Hidden on desktop, visible mobile */
+        }
+
+        .horizontal-scroller {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding-bottom: 40px; /* Space for shadow/scroll */
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            padding-left: 10px;
+        }
+        .horizontal-scroller::-webkit-scrollbar { display: none; }
+
+        /* Individual Project Card inside Horizontal Scroller */
+        .h-card {
+            flex: 0 0 400px; /* Fixed width */
             background: #fff;
-            border-radius: 30px;
+            border-radius: 24px;
             overflow: hidden;
-            width: 100%;
-            max-width: 650px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08); /* Deeper shadow */
-            height: 550px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            scroll-snap-align: start;
+            height: 450px;
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s ease;
         }
-        .card-content { padding: 50px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-category { font-size: 13px; font-weight: 700; color: #86868b; text-transform: uppercase; letter-spacing: 0.05em; }
-        .card-title { font-size: 36px; font-weight: 600; margin-top: 10px; color: #1d1d1f; }
-        .card-desc { font-size: 19px; color: #1d1d1f; margin-top: 20px; line-height: 1.4; }
-        .card-image-placeholder { width: 100%; height: 220px; background: #eee; margin-top: auto; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #86868b; font-weight: 500; }
+        .h-card:hover { transform: translateY(-10px); }
 
-        /* --- TECH STACK --- */
+        .h-card-content { padding: 30px; display: flex; flex-direction: column; height: 100%; justify-content: space-between; }
+        .h-card-title { font-size: 24px; font-weight: 600; margin-bottom: 10px; color: #1d1d1f; }
+        .h-card-desc { font-size: 15px; line-height: 1.4; color: #515154; }
+        .h-card-img { width: 100%; height: 180px; background: #eee; margin-top: auto; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 12px; font-weight: 600; }
+
+        /* --- TECH STACK (Infinite Marquee) --- */
         .tech-stack {
             background-color: #1d1d1f;
-            padding: 150px 20px;
-            text-align: center;
+            padding: 100px 0;
+            overflow: hidden; /* Hide scrollbar */
+            position: relative;
         }
-        .tech-title { font-size: 48px; margin-bottom: 60px; color: #f5f5f7; font-weight: 600; }
-        .tech-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; max-width: 900px; margin: 0 auto; }
-        .tech-pill { border: 1px solid #424245; padding: 12px 24px; border-radius: 30px; font-size: 19px; color: #f5f5f7; transition: background 0.3s; }
-        .tech-pill:hover { background: #333; }
+        .tech-title { font-size: 40px; margin-bottom: 60px; color: #f5f5f7; font-weight: 600; text-align: center; }
+
+        .marquee-wrapper {
+            display: flex;
+            width: fit-content;
+            animation: scroll 30s linear infinite;
+        }
+        
+        .marquee-group {
+            display: flex;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .tech-pill {
+            border: 1px solid #424245;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-size: 24px;
+            color: #f5f5f7;
+            white-space: nowrap;
+            background: rgba(255,255,255,0.05);
+        }
 
         /* --- FOOTER --- */
         footer { background-color: var(--bg-light); color: #86868b; padding: 50px 20px; font-size: 12px; border-top: 1px solid #d2d2d7; }
@@ -273,6 +280,10 @@
         /* UTILS */
         @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Move half width because we duplicated the list */
+        }
         
         .simple-reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
         .simple-reveal.visible { opacity: 1; transform: translateY(0); }
@@ -281,15 +292,13 @@
         @media (max-width: 900px) {
             .hero h1 { font-size: 48px; }
             .statement-text { font-size: 32px; }
-            
-            /* Disable sticky layout on mobile */
             .sticky-container { display: block; }
             .experience-section .sticky-container { flex-direction: column; }
-            
-            .sidebar { display: none; } /* Hide sidebars on mobile */
+            .sidebar { display: none; }
             .content-list { padding: 40px 20px; }
-            .scroll-item { min-height: auto; margin-bottom: 80px; opacity: 1; transform: none; filter: none; }
-            .card { height: auto; min-height: 500px; }
+            .scroll-item { min-height: auto; margin-bottom: 60px; opacity: 1; transform: none; filter: none; }
+            .project-category-title { display: block; } /* Show headers on mobile */
+            .h-card { flex: 0 0 85vw; } /* Cards take mostly full width on mobile */
         }
     </style>
 </head>
@@ -299,10 +308,10 @@
         <div class="nav-content">
             <div class="logo">Your Name</div>
             <div class="nav-links">
-                <a href="#statement">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Work</a>
-                <a href="mailto:your.email@example.com">Contact</a>
+                <a href="#statement" id="nav-about">About</a>
+                <a href="#experience" id="nav-experience">Experience</a>
+                <a href="#projects" id="nav-work">Work</a>
+                <a href="#contact" id="nav-contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -310,10 +319,10 @@
     <header class="hero">
         <h1>Data Scientist.</h1>
         <h2>Turning raw data into actionable intelligence.</h2>
-        <a href="#experience" class="cta-button">See My Journey</a>
+        <a href="#projects" class="cta-button">View Work</a>
     </header>
 
-    <section id="statement" class="statement">
+    <section id="statement" class="statement nav-section">
         <div class="statement-text simple-reveal">
             Complex problems require 
             <span class="highlight">elegant solutions.</span>
@@ -321,9 +330,8 @@
         </div>
     </section>
 
-    <section id="experience" class="sticky-wrapper experience-section">
+    <section id="experience" class="sticky-wrapper experience-section nav-section">
         <div class="sticky-container">
-            
             <div class="sidebar">
                 <div class="exp-sidebar-item active" data-target="e1">2023 — Present</div>
                 <div class="exp-sidebar-item" data-target="e2">2021 — 2023</div>
@@ -331,81 +339,144 @@
             </div>
 
             <div class="content-list">
-                
                 <div class="scroll-item in-view" id="e1">
                     <div class="exp-role">Senior Data Scientist</div>
                     <div class="exp-company">Tech Giant Corp.</div>
                     <div class="exp-desc">
-                        Leading a team of 4 to deploy Large Language Model agents for customer support. Reduced ticket resolution time by 40%. Architected the RAG pipeline using Pinecone and LangChain.
+                        Leading a team of 4 to deploy Large Language Model agents for customer support. Reduced ticket resolution time by 40%.
                     </div>
                 </div>
-
                 <div class="scroll-item" id="e2">
                     <div class="exp-role">Machine Learning Engineer</div>
                     <div class="exp-company">FinTech Solutions</div>
                     <div class="exp-desc">
-                        Built fraud detection systems processing 10k transactions per second. Migrated legacy scikit-learn models to distributed training on AWS SageMaker.
+                        Built fraud detection systems processing 10k transactions per second. Migrated legacy scikit-learn models to distributed AWS SageMaker training.
                     </div>
                 </div>
-
                 <div class="scroll-item" id="e3">
                     <div class="exp-role">Data Analyst</div>
                     <div class="exp-company">StartUp Inc.</div>
                     <div class="exp-desc">
-                        Conducted A/B testing for product features. Created automated dashboards in Tableau that saved the marketing team 15 hours of manual reporting per week.
+                        Conducted A/B testing for product features. Created automated dashboards in Tableau saving 15 hours of manual reporting per week.
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="projects" class="sticky-wrapper projects-section">
+    <section id="projects" class="sticky-wrapper projects-section nav-section">
         <div class="sticky-container">
             
             <div class="sidebar">
-                <div class="proj-sidebar-item active" data-target="p1">01. Defect Detection</div>
-                <div class="proj-sidebar-item" data-target="p2">02. Sentiment Engine</div>
-                <div class="proj-sidebar-item" data-target="p3">03. Forecasting</div>
+                <div class="proj-sidebar-item active" data-target="cat-genai">GenAI & LLMs</div>
+                <div class="proj-sidebar-item" data-target="cat-cv">Computer Vision</div>
+                <div class="proj-sidebar-item" data-target="cat-ts">Time Series</div>
+                <div class="proj-sidebar-item" data-target="cat-ci">Causal Inference</div>
             </div>
 
             <div class="content-list">
                 
-                <div class="scroll-item in-view" id="p1">
-                    <div class="card">
-                        <div class="card-content">
-                            <div>
-                                <div class="card-category">Computer Vision</div>
-                                <div class="card-title">Defect Detection System.</div>
-                                <div class="card-desc">Automated quality control using CNNs and PyTorch. Achieved 99.8% accuracy.</div>
+                <div class="scroll-item in-view" id="cat-genai">
+                    <div class="project-category-title">GenAI & LLMs</div>
+                    <div class="horizontal-scroller">
+                        <div class="h-card">
+                            <div class="h-card-content">
+                                <div>
+                                    <div class="h-card-title">RAG Agent</div>
+                                    <div class="h-card-desc">Documentation chatbot using LangChain and Pinecone vector database.</div>
+                                </div>
+                                <div class="h-card-img">Architecture</div>
                             </div>
-                            <div class="card-image-placeholder">Screenshot</div>
+                        </div>
+                        <div class="h-card">
+                            <div class="h-card-content">
+                                <div>
+                                    <div class="h-card-title">Text Summarizer</div>
+                                    <div class="h-card-desc">Fine-tuned Llama-3 to summarize legal contracts into bullet points.</div>
+                                </div>
+                                <div class="h-card-img">Demo UI</div>
+                            </div>
+                        </div>
+                        <div class="h-card">
+                            <div class="h-card-content">
+                                <div>
+                                    <div class="h-card-title">Code Assistant</div>
+                                    <div class="h-card-desc">VS Code extension for internal proprietary language support.</div>
+                                </div>
+                                <div class="h-card-img">Screenshot</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="scroll-item" id="p2">
-                    <div class="card">
-                        <div class="card-content">
-                            <div>
-                                <div class="card-category">NLP & LLMs</div>
-                                <div class="card-title">Sentiment Analysis.</div>
-                                <div class="card-desc">Fine-tuned BERT models to analyze customer feedback across 3 languages.</div>
+                <div class="scroll-item" id="cat-cv">
+                    <div class="project-category-title">Computer Vision</div>
+                    <div class="horizontal-scroller">
+                        <div class="h-card">
+                            <div class="h-card-content">
+                                <div>
+                                    <div class="h-card-title">Defect Detection</div>
+                                    <div class="h-card-desc">YOLOv8 implementation for manufacturing line quality control.</div>
+                                </div>
+                                <div class="h-card-img">Heatmap</div>
                             </div>
-                            <div class="card-image-placeholder">Architecture</div>
+                        </div>
+                        <div class="h-card">
+                            <div class="h-card-content">
+                                <div>
+                                    <div class="h-card-title">Face Auth</div>
+                                    <div class="h-card-desc">Biometric entry system using Siamese Networks.</div>
+                                </div>
+                                <div class="h-card-img">Accuracy Plot</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="scroll-item" id="p3">
-                    <div class="card">
-                        <div class="card-content">
-                            <div>
-                                <div class="card-category">Predictive Analytics</div>
-                                <div class="card-title">Sales Forecasting.</div>
-                                <div class="card-desc">Time-series forecasting using XGBoost to predict quarterly inventory needs.</div>
+                <div class="scroll-item" id="cat-ts">
+                    <div class="project-category-title">Time Series</div>
+                    <div class="horizontal-scroller">
+                        <div class="h-card">
+                            <div class="h-card-content">
+                                <div>
+                                    <div class="h-card-title">Inventory Forecast</div>
+                                    <div class="h-card-desc">Prophet and XGBoost hybrid model to predict SKU demand.</div>
+                                </div>
+                                <div class="h-card-img">Forecast Chart</div>
                             </div>
-                            <div class="card-image-placeholder">Data Viz</div>
+                        </div>
+                        <div class="h-card">
+                            <div class="h-card-content">
+                                <div>
+                                    <div class="h-card-title">Stock Anomaly</div>
+                                    <div class="h-card-desc">LSTM autoencoder to detect market anomalies in real-time.</div>
+                                </div>
+                                <div class="h-card-img">Architecture</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="scroll-item" id="cat-ci">
+                    <div class="project-category-title">Causal Inference</div>
+                    <div class="horizontal-scroller">
+                        <div class="h-card">
+                            <div class="h-card-content">
+                                <div>
+                                    <div class="h-card-title">Marketing Mix</div>
+                                    <div class="h-card-desc">Used DoWhy to determine uplift of ad spend on TV vs Social.</div>
+                                </div>
+                                <div class="h-card-img">Uplift Graph</div>
+                            </div>
+                        </div>
+                        <div class="h-card">
+                            <div class="h-card-content">
+                                <div>
+                                    <div class="h-card-title">Policy Effect</div>
+                                    <div class="h-card-desc">Synthetic Control Method to measure impact of new HR policy.</div>
+                                </div>
+                                <div class="h-card-img">Data Viz</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -416,20 +487,38 @@
 
     <section class="tech-stack">
         <h3 class="tech-title simple-reveal">Technical Proficiency.</h3>
-        <div class="tech-grid simple-reveal">
-            <span class="tech-pill">Python</span>
-            <span class="tech-pill">PyTorch</span>
-            <span class="tech-pill">TensorFlow</span>
-            <span class="tech-pill">SQL</span>
-            <span class="tech-pill">AWS</span>
-            <span class="tech-pill">Docker</span>
-            <span class="tech-pill">Tableau</span>
-            <span class="tech-pill">Scikit-learn</span>
-            <span class="tech-pill">Git</span>
+        
+        <div class="marquee-wrapper">
+            <div class="marquee-group">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">PyTorch</span>
+                <span class="tech-pill">TensorFlow</span>
+                <span class="tech-pill">LangChain</span>
+                <span class="tech-pill">SQL</span>
+                <span class="tech-pill">AWS</span>
+                <span class="tech-pill">Docker</span>
+                <span class="tech-pill">Kubernetes</span>
+                <span class="tech-pill">Tableau</span>
+                <span class="tech-pill">Spark</span>
+                <span class="tech-pill">Git</span>
+            </div>
+            <div class="marquee-group">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">PyTorch</span>
+                <span class="tech-pill">TensorFlow</span>
+                <span class="tech-pill">LangChain</span>
+                <span class="tech-pill">SQL</span>
+                <span class="tech-pill">AWS</span>
+                <span class="tech-pill">Docker</span>
+                <span class="tech-pill">Kubernetes</span>
+                <span class="tech-pill">Tableau</span>
+                <span class="tech-pill">Spark</span>
+                <span class="tech-pill">Git</span>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <footer id="contact" class="nav-section">
         <div class="footer-content">
             <div>&copy; 2025 Your Name. All rights reserved.</div>
             <div>
@@ -441,7 +530,33 @@
     </footer>
 
     <script>
-        // 1. Simple Reveal for non-parallax sections
+        // 1. Navigation Highlighter (New)
+        // We use IntersectionObserver to see which section is mostly on screen
+        const navLinks = {
+            'statement': document.getElementById('nav-about'),
+            'experience': document.getElementById('nav-experience'),
+            'projects': document.getElementById('nav-work'),
+            'contact': document.getElementById('nav-contact')
+        };
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove active from all
+                    Object.values(navLinks).forEach(link => link.classList.remove('active-link'));
+                    // Add active to current
+                    if(navLinks[entry.target.id]) {
+                        navLinks[entry.target.id].classList.add('active-link');
+                    }
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of section is visible
+
+        document.querySelectorAll('.nav-section').forEach(section => {
+            navObserver.observe(section);
+        });
+
+        // 2. Simple Reveal
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -454,27 +569,19 @@
             revealObserver.observe(el);
         });
 
-        // 2. Parallax/Scrollspy Logic
-        // We reuse the same logic for both "Experience" and "Projects" sections
-        // because they use the same structure: .scroll-item and sidebar items with data-target
-        
+        // 3. Parallax/Sidebar Logic (Experience & Projects)
         const scrollItems = document.querySelectorAll('.scroll-item');
         
         const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Activate Content
-                    // We remove in-view from siblings within the same parent, but simple looping is safer:
-                    // Find all items in THIS specific list container to toggle classes exclusively there
                     const parent = entry.target.parentElement;
                     const siblings = parent.querySelectorAll('.scroll-item');
                     siblings.forEach(s => s.classList.remove('in-view'));
                     
                     entry.target.classList.add('in-view');
 
-                    // Activate Sidebar Link
                     const id = entry.target.getAttribute('id');
-                    // Find the sidebar associated with this section (traverse up to section then down to sidebar)
                     const section = entry.target.closest('section');
                     const sidebarItems = section.querySelectorAll('.exp-sidebar-item, .proj-sidebar-item');
                     
@@ -486,16 +593,13 @@
                     });
                 }
             });
-        }, { 
-            rootMargin: '-20% 0px -20% 0px', // Shrink the "hit" area so transition happens closer to center
-            threshold: 0.5 
-        });
+        }, { rootMargin: '-20% 0px -20% 0px', threshold: 0.5 });
 
         scrollItems.forEach(item => {
             scrollObserver.observe(item);
         });
 
-        // 3. Click-to-scroll logic
+        // 4. Click to scroll
         document.querySelectorAll('.exp-sidebar-item, .proj-sidebar-item').forEach(item => {
             item.addEventListener('click', () => {
                 const targetId = item.getAttribute('data-target');
