@@ -1,356 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Scientist Portfolio</title>
+    <title>Manas Tokale | Applied AI, ML, and Data Science</title>
+    <meta name="description"
+        content="Portfolio of Manas Tokale, a data scientist and machine learning engineer building applied AI, forecasting, retrieval, and computer vision systems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=account_balance,code,fingerprint,forum,health_and_safety,language,location_city,memory,movie,music_note,palette,psychology,receipt_long,school,train,trending_up&display=block"
+        rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-
-    <nav>
-        <div class="nav-content">
-            <div class="logo"><a href="https://drive.google.com/file/d/1N6Qf6whbuJTlmkyWD8Nca2l4iQRbZpba/view?usp=sharing">Open To Work</a></div>
-            <div class="nav-links">
-                <a href="#statement" id="nav-about">About</a>
-                <a href="#experience" id="nav-experience">Experience</a>
-                <a href="#projects" id="nav-work">Work</a>
-                <a href="#contact" id="nav-contact">Contact</a>
+    <div class="page-shell">
+        <header class="site-nav">
+            <div class="nav-inner">
+                <a class="brand" href="#top">Manas Tokale</a>
+                <nav class="nav-links" aria-label="Primary">
+                    <a href="#top">Overview</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#education">Education</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </nav>
             </div>
-        </div>
-    </nav>
+        </header>
 
-    <header class="hero">
-        <h1>Hi, I'm Manas.</h1>
-        <h2>Making good code better.</h2>
-        <a href="#statement" class="cta-button">View My Journey</a>
-    </header>
-
-    <section id="statement" class="statement nav-section">
-        <div class="statement-text simple-reveal">
-            Complex problems require 
-            <span class="highlight">elegant solutions.</span> <br>
-            I specialize in building scalable machine learning models that drive real business value.
-        </div>
-    </section>
-
-    <section id="experience" class="sticky-wrapper experience-section nav-section">
-        <div class="sticky-container">
-            <div class="sidebar">
-                <div class="exp-sidebar-item active" data-target="e1">2024 — Present</div>
-                <div class="exp-sidebar-item" data-target="e2">2023 — 2024</div>
-                <div class="exp-sidebar-item" data-target="e3">2021 — 2023</div>
-                <div class="exp-sidebar-item" data-target="e4">2020</div>
-            </div>
-
-            <div class="content-list">
-                <div class="scroll-item in-view" id="e1">
-                    <div class="exp-role">Data Science Researcher</div>
-                    <div class="exp-company">University Of Illinois, Urbana-Champaign</div>
-                    <div class="exp-desc">
-                        &bull; Developed classwork material to explain <strong>Machine Learning concepts</strong> to non-technical students.<br>
-                        &bull; Utilised Agentic AI to provide <strong>supplementary analysis</strong> to detect the impact of open source software route for capturing innovation value.
-                    </div>
-                </div>
-                <div class="scroll-item" id="e1">
-                    <div class="exp-role">Graduate Assistant</div>
-                    <div class="exp-company">University Of Illinois, Urbana-Champaign</div>
-                    <div class="exp-desc">
-                        &bull; Used Google ADK to develop a stage-based, multi-agent entrepreneurship coaching app.<br>
-                        &bull; Accelerated current admissions workflow by <strong>10x</strong> by implementing resume parsing and optimising faculty workload analytics using Replit.<br>
-                        &bull; Evaluated GenAI project efficacy using <strong>LLM-as-a-judge</strong>.
-                    </div>
-                </div>
-                <div class="scroll-item" id="e1">
-                    <div class="exp-role">State Farm Fellow</div>
-                    <div class="exp-company">University Of Illinois, Urbana-Champaign</div>
-                    <div class="exp-desc">
-                        &bull; Collaborated with State Farm to develop static web content highlighting the <strong>synergy</strong> between the organisation and the University.
-                    </div>
-                </div>
-                <div class="scroll-item" id="e1">
-                    <div class="exp-role">Data Scientist</div>
-                    <div class="exp-company">CNeutral LLC</div>
-                    <div class="exp-desc">
-                        &bull; Engineered a scalable pipeline using LLMs to extract <strong>ESG</strong> insights from over 9,000+ companies of the <strong>$3T Norwegian Pension Fund</strong>.
-                    </div>
-                </div>
-                <div class="scroll-item" id="e2">
-                    <div class="exp-role">Software Developer</div>
-                    <div class="exp-company">Freelancer</div>
-                    <div class="exp-desc">
-                        &bull; Utilised tools like PyCamelot and PyMuPDF to extract and store <strong>invoice</strong> details for a large Indian conglomerate.<br>
-                        &bull; Automated steel detailing and connection design renders using <strong>SDS2</strong> for a mid-size civil engineering firm.<br>
-                        &bull; Developed a dashboard using Dash to <strong>monitor employee performance</strong>.
-                    </div>
-                </div>
-                <div class="scroll-item" id="e3">
-                    <div class="exp-role">Machine Learning Engineer</div>
-                    <div class="exp-company">Technokart Consultancy Services</div>
-                    <div class="exp-desc">
-                        &bull; <strong>PII Redaction:</strong> Engineered an automated PII redaction system using YOLO and OCR, achieving 92% recall to ensure strict data compliance.<br>
-                        &bull; <strong>Latency Optimization:</strong> Architected a fault-tolerant ML microservice that reduced inference latency by 40% (10s to sub- 6s) while maintaining 96% uptime.<br>
-                        &bull; <strong>Automated Auditing:</strong> Integrated a scalable OpenAI Whisper pipeline for automated auditing, cutting operational overhead by 60%.<br>
-                        &bull; <strong>DevOps Stability:</strong> Eliminated critical deployment failures by establishing robust CI/CD pipelines and peer review protocols in an Agile environment.
-                        &bull; <strong>Targeted Ads:</strong> Utilised deepfake tools to develop ads targeting specific users.
-                    </div>
-                </div>
-                <div class="scroll-item" id="e4">
-                    <div class="exp-role">Data Science Intern</div>
-                    <div class="exp-company">Specialist Advisory and Intervention Group</div>
-                    <div class="exp-desc">
-                        &bull; Developed PowerBI dashboards to monitor an organisation's <strong>public representation</strong> via sentiment analysis.<br>
-                        &bull; Utilised <strong>OSINT</strong> tools like Maltego to map relations between various entities to detect fraud.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="sticky-wrapper projects-section nav-section">
-        <div class="sticky-container">
-            
-            <div class="sidebar">
-                <div class="proj-sidebar-item active" data-target="cat-genai">GenAI & LLMs</div>
-                <div class="proj-sidebar-item" data-target="cat-cv">Computer Vision</div>
-                <div class="proj-sidebar-item" data-target="cat-ts">Time Series</div>
-                <div class="proj-sidebar-item" data-target="cat-ci">Causal Inference</div>
-                <div class="proj-sidebar-item" data-target="cat-p">Personal</div>
-            </div>
-
-            <div class="content-list">
-                
-                <div class="scroll-item in-view" id="cat-genai">
-                    <div class="project-category-title">GenAI & LLMs</div>
-                    <div class="horizontal-scroller">
-                        <div class="h-card">
-                            <div class="h-card-content">
-                                <div>
-                                    <div class="h-card-title">RAG Agent</div>
-                                    <div class="h-card-desc">Documentation chatbot using LangChain and Pinecone vector database.</div>
-                                </div>
-                                <div class="h-card-img">Architecture</div>
+        <main>
+            <section class="hero" id="top">
+                <div class="hero-panel reveal">
+                    <div class="hero-layout">
+                        <div class="hero-copy-block">
+                            <p class="eyebrow">Data Science • Machine Learning • Applied AI</p>
+                            <h1>I’m Manas. I like building things.</h1>
+                            <p class="hero-copy">
+                                I’m a data scientist and machine learning engineer who enjoys finding the real business
+                                problem,
+                                then building the system that solves it cleanly. When I’m not coding, you’ll usually
+                                find me
+                                painting, cooking, playing badminton, or playing video games.
+                            </p>
+                            <div class="hero-actions">
+                                <a class="primary-button" href="#projects">See Projects</a>
+                                <a class="secondary-button" href="mailto:manastokale@gmail.com">Email</a>
+                                <a class="secondary-button" href="./assets/resume.pdf"
+                                    data-placeholder="resume-link">Resume</a>
+                            </div>
+                            <div class="hero-meta">
+                                <span>4+ years of experience</span>
+                                <span>Relocation ready</span>
                             </div>
                         </div>
-                        <div class="h-card">
-                            <div class="h-card-content">
-                                <div>
-                                    <div class="h-card-title">Text Summarizer</div>
-                                    <div class="h-card-desc">Fine-tuned Llama-3 to summarize legal contracts into bullet points.</div>
-                                </div>
-                                <div class="h-card-img">Demo UI</div>
-                            </div>
-                        </div>
-                        <div class="h-card">
-                            <div class="h-card-content">
-                                <div>
-                                    <div class="h-card-title">Code Assistant</div>
-                                    <div class="h-card-desc">VS Code extension for internal proprietary language support.</div>
-                                </div>
-                                <div class="h-card-img">Screenshot</div>
+
+                        <div class="portrait-inline" aria-hidden="true">
+                            <div class="portrait-frame">
+                                <img src="./assets/profile-portrait.jpg" alt="Portrait of Manas Tokale">
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="scroll-item" id="cat-cv">
-                    <div class="project-category-title">Computer Vision</div>
-                    <div class="horizontal-scroller">
-                        <div class="h-card">
-                            <div class="h-card-content">
-                                <div>
-                                    <div class="h-card-title">Defect Detection</div>
-                                    <div class="h-card-desc">YOLOv8 implementation for manufacturing line quality control.</div>
-                                </div>
-                                <div class="h-card-img">Heatmap</div>
-                            </div>
-                        </div>
-                        <div class="h-card">
-                            <div class="h-card-content">
-                                <div>
-                                    <div class="h-card-title">Face Auth</div>
-                                    <div class="h-card-desc">Biometric entry system using Siamese Networks.</div>
-                                </div>
-                                <div class="h-card-img">Accuracy Plot</div>
-                            </div>
-                        </div>
+            <section class="rail-section reveal">
+                <div class="rail-header">
+                    <p class="eyebrow">About Me</p>
+                    <h2>The short version.</h2>
+                </div>
+                <div class="carousel" id="signal-rail">
+                    <article class="signal-card">
+                        <span class="signal-kicker">Applied AI</span>
+                        <h3>LLMs with memory. Retrieval with discipline.</h3>
+                        <p>Narrative AI, local fine-tuning, ESG search, and evaluation pipelines.</p>
+                    </article>
+                    <article class="signal-card">
+                        <span class="signal-kicker">Forecasting</span>
+                        <h3>Models that move decisions.</h3>
+                        <p>Top-7 staffing forecasts, predictive maintenance, and credit exposure planning.</p>
+                    </article>
+                    <article class="signal-card">
+                        <span class="signal-kicker">Execution</span>
+                        <h3>Measured. Not imagined.</h3>
+                        <p>10x faster review. 90% better data quality. 40% lower latency. 60% less audit overhead.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="rail-section reveal">
+                <div class="rail-header">
+                    <p class="eyebrow">Core Stack</p>
+                    <h2>The tools behind the work.</h2>
+                </div>
+                <div class="stack-marquee" aria-label="Core stack">
+                    <div class="stack-marquee-inner">
+                        <div class="stack-track" id="skills-rail-primary"></div>
+                        <div class="stack-track" id="skills-rail-secondary" aria-hidden="true"></div>
                     </div>
                 </div>
+            </section>
 
-                <div class="scroll-item" id="cat-ts">
-                    <div class="project-category-title">Time Series</div>
-                    <div class="horizontal-scroller">
-                        <div class="h-card">
-                            <div class="h-card-content">
-                                <div>
-                                    <div class="h-card-title">Inventory Forecast</div>
-                                    <div class="h-card-desc">Prophet and XGBoost hybrid model to predict SKU demand.</div>
-                                </div>
-                                <div class="h-card-img">Forecast Chart</div>
-                            </div>
-                        </div>
-                        <div class="h-card">
-                            <div class="h-card-content">
-                                <div>
-                                    <div class="h-card-title">Stock Anomaly</div>
-                                    <div class="h-card-desc">LSTM autoencoder to detect market anomalies in real-time.</div>
-                                </div>
-                                <div class="h-card-img">Architecture</div>
-                            </div>
-                        </div>
+            <section class="rail-section" id="experience">
+                <div class="rail-header reveal">
+                    <p class="eyebrow">Experience</p>
+                    <h2>Proven history of shipping impactful work.</h2>
+                </div>
+                <div class="carousel" id="experience-list"></div>
+            </section>
+
+            <section class="rail-section" id="education">
+                <div class="rail-header reveal">
+                    <p class="eyebrow">Education</p>
+                    <h2>The training behind the work.</h2>
+                </div>
+                <div class="carousel" id="education-list"></div>
+            </section>
+
+            <section class="rail-section" id="projects">
+                <div class="rail-header reveal">
+                    <p class="eyebrow">Projects</p>
+                    <h2>The work. Grouped for speed.</h2>
+                </div>
+                <div id="project-sections"></div>
+            </section>
+
+            <section class="contact-section reveal" id="contact">
+                <div class="contact-card">
+                    <p class="eyebrow">Contact</p>
+                    <h2>If the brief is to ship something useful, not just interesting, we should talk.</h2>
+                    <div class="contact-links">
+                        <a class="primary-button" href="mailto:manastokale@gmail.com">manastokale@gmail.com</a>
+                        <a class="secondary-button" href="https://github.com/manastokale">GitHub</a>
+                        <a class="secondary-button" href="https://www.linkedin.com/in/manas-tokale/">LinkedIn</a>
                     </div>
                 </div>
+            </section>
+        </main>
+    </div>
 
-                 <div class="scroll-item" id="cat-ci">
-                    <div class="project-category-title">Causal Inference</div>
-                    <div class="horizontal-scroller">
-                        <div class="h-card">
-                            <div class="h-card-content">
-                                <div>
-                                    <div class="h-card-title">Marketing Mix</div>
-                                    <div class="h-card-desc">Used DoWhy to determine uplift of ad spend on TV vs Social.</div>
-                                </div>
-                                <div class="h-card-img">Uplift Graph</div>
-                            </div>
-                        </div>
-                        <div class="h-card">
-                            <div class="h-card-content">
-                                <div>
-                                    <div class="h-card-title">Policy Effect</div>
-                                    <div class="h-card-desc">Synthetic Control Method to measure impact of new HR policy.</div>
-                                </div>
-                                <div class="h-card-img">Data Viz</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="tech-stack">
-        <h3 class="tech-title simple-reveal">Technical Proficiency.</h3>
-        
-        <div class="marquee-wrapper">
-            <div class="marquee-group">
-                <span class="tech-pill">Python</span>
-                <span class="tech-pill">PyTorch</span>
-                <span class="tech-pill">TensorFlow</span>
-                <span class="tech-pill">LangChain</span>
-                <span class="tech-pill">SQL</span>
-                <span class="tech-pill">AWS</span>
-                <span class="tech-pill">Docker</span>
-                <span class="tech-pill">Kubernetes</span>
-                <span class="tech-pill">Tableau</span>
-                <span class="tech-pill">Spark</span>
-                <span class="tech-pill">Git</span>
-            </div>
-            <div class="marquee-group">
-                <span class="tech-pill">Python</span>
-                <span class="tech-pill">PyTorch</span>
-                <span class="tech-pill">TensorFlow</span>
-                <span class="tech-pill">LangChain</span>
-                <span class="tech-pill">SQL</span>
-                <span class="tech-pill">AWS</span>
-                <span class="tech-pill">Docker</span>
-                <span class="tech-pill">Kubernetes</span>
-                <span class="tech-pill">Tableau</span>
-                <span class="tech-pill">Spark</span>
-                <span class="tech-pill">Git</span>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="nav-section">
-        <div class="footer-content">
-            <div>&copy; 2025 Manas Tokale. All rights reserved.</div>
-            <div>
-                <a href="https://www.linkedin.com/in/manas-tokale/">LinkedIn</a> &nbsp;|&nbsp; 
-                <a href="https://github.com/mavito">GitHub</a> &nbsp;|&nbsp; 
-                <a href="https://drive.google.com/file/d/1N6Qf6whbuJTlmkyWD8Nca2l4iQRbZpba/view?usp=sharing">Resume</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // 1. Navigation Highlighter (New)
-        // We use IntersectionObserver to see which section is mostly on screen
-        const navLinks = {
-            'statement': document.getElementById('nav-about'),
-            'experience': document.getElementById('nav-experience'),
-            'projects': document.getElementById('nav-work'),
-            'contact': document.getElementById('nav-contact')
-        };
-
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Remove active from all
-                    Object.values(navLinks).forEach(link => link.classList.remove('active-link'));
-                    // Add active to current
-                    if(navLinks[entry.target.id]) {
-                        navLinks[entry.target.id].classList.add('active-link');
-                    }
-                }
-            });
-        }, { threshold: 0.5 }); // Trigger when 50% of section is visible
-
-        document.querySelectorAll('.nav-section').forEach(section => {
-            navObserver.observe(section);
-        });
-
-        // 2. Simple Reveal
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.simple-reveal').forEach((el) => {
-            revealObserver.observe(el);
-        });
-
-        // 3. Parallax/Sidebar Logic (Experience & Projects)
-        const scrollItems = document.querySelectorAll('.scroll-item');
-        
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const parent = entry.target.parentElement;
-                    const siblings = parent.querySelectorAll('.scroll-item');
-                    siblings.forEach(s => s.classList.remove('in-view'));
-                    
-                    entry.target.classList.add('in-view');
-
-                    const id = entry.target.getAttribute('id');
-                    const section = entry.target.closest('section');
-                    const sidebarItems = section.querySelectorAll('.exp-sidebar-item, .proj-sidebar-item');
-                    
-                    sidebarItems.forEach(item => {
-                        item.classList.remove('active');
-                        if (item.getAttribute('data-target') === id) {
-                            item.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, { rootMargin: '-20% 0px -20% 0px', threshold: 0.5 });
-
-        scrollItems.forEach(item => {
-            scrollObserver.observe(item);
-        });
-
-        // 4. Click to scroll
-        document.querySelectorAll('.exp-sidebar-item, .proj-sidebar-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const targetId = item.getAttribute('data-target');
-                const targetEl = document.getElementById(targetId);
-                targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            });
-        });
-    </script>
+    <script src="./script.js"></script>
 </body>
+
 </html>
