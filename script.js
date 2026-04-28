@@ -168,16 +168,16 @@ const projects = [
         links: [{ label: "GitHub", url: "https://github.com/manastokale/Chicago-Crime-Analysis" }],
     },
     {
-        title: "CU-MTD Live Dashboard",
+        title: "CUMTD Live Dashboard",
         category: "Analytics & Product",
         status: "Transit UX",
-        subtitle: "Mini Metro-inspired real-time transit map for Champaign-Urbana",
+        subtitle: "Mini Metro-inspired real-time transit map for Champaign-Urbana MTD",
         about:
-            "A live transit dashboard that combines GTFS, GTFS-Realtime, and MapLibre into a minimal rider-facing map experience.",
+            "A live CUMTD transit dashboard that combines GTFS, GTFS-Realtime, and MapLibre into a minimal rider-facing map experience.",
         impact:
             "Turns raw bus telemetry into clearer boarding, crowding, and route context.",
         tags: ["JavaScript", "MapLibre", "GTFS-Realtime", "Transit"],
-        thumb: "location_city",
+        thumb: "directions_bus",
         links: [],
     },
     {
