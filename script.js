@@ -178,7 +178,7 @@ const projects = [
             "Turns raw bus telemetry into clearer boarding, crowding, and route context.",
         tags: ["JavaScript", "MapLibre", "GTFS-Realtime", "Transit"],
         thumb: "directions_bus",
-        links: [],
+        links: [{ label: "GitHub", url: "https://github.com/manastokale/cumtd_dash" }],
     },
     {
         title: "MCU Actor Causal Impact Analysis",
