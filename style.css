@@ -369,6 +369,7 @@ button {
 
 .signal-card {
     flex: 0 0 min(360px, 86vw);
+    min-height: 214px;
     padding: 24px;
 }
 
@@ -445,7 +446,9 @@ button {
 .experience-card {
     flex: 0 0 min(420px, 90vw);
     display: grid;
+    grid-template-rows: 112px 3.4em auto;
     gap: 12px;
+    min-height: 268px;
     padding: 24px;
 }
 
@@ -455,12 +458,14 @@ button {
     justify-content: space-between;
     gap: 14px;
     align-items: start;
+    min-height: 112px;
 }
 
 .experience-meta,
 .education-meta {
     display: grid;
     gap: 4px;
+    min-width: 0;
 }
 
 .experience-role,
@@ -468,28 +473,67 @@ button {
     font-size: 1.35rem;
     font-weight: 700;
     letter-spacing: -0.03em;
+    line-height: 1.18;
 }
 
 .experience-company,
 .education-school {
     color: var(--text-soft);
     font-size: 0.95rem;
+    line-height: 1.45;
 }
 
 .experience-period,
 .education-period {
+    flex: 0 0 auto;
+    max-width: 12ch;
     color: #d2d2d7;
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.1em;
+    line-height: 1.35;
+    text-align: right;
     text-transform: uppercase;
 }
 
 .education-card {
     flex: 0 0 min(420px, 90vw);
     display: grid;
+    grid-template-rows: 112px 2em auto;
     gap: 12px;
+    min-height: 244px;
     padding: 24px;
+}
+
+.card-point {
+    position: relative;
+    display: -webkit-box;
+    overflow: hidden;
+    padding-left: 16px;
+    color: var(--text-soft);
+    line-height: 1.7;
+    -webkit-box-orient: vertical;
+}
+
+.card-point::before {
+    content: "-";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--text);
+    font-weight: 800;
+}
+
+.card-point-empty::before {
+    content: "";
+}
+
+.experience-card p {
+    -webkit-line-clamp: 3;
+}
+
+.education-card p {
+    -webkit-line-clamp: 1;
 }
 
 .tag-row {
@@ -523,7 +567,9 @@ button {
 .project-card {
     flex: 0 0 min(360px, 86vw);
     display: grid;
+    grid-template-rows: 116px 3.4em 3.4em 74px 154px 24px;
     gap: 12px;
+    min-height: 566px;
     padding: 22px;
 }
 
@@ -532,14 +578,41 @@ button {
     align-items: start;
     justify-content: space-between;
     gap: 12px;
+    min-height: 116px;
+    overflow: hidden;
+}
+
+.project-title-block {
+    min-width: 0;
+}
+
+.project-card h3 {
+    display: -webkit-box;
+    overflow: hidden;
+    min-height: 3em;
+    margin-top: 0;
+    margin-bottom: 8px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .project-subtitle {
+    display: -webkit-box;
+    overflow: hidden;
+    min-height: 2.8em;
     color: var(--text-soft);
     font-size: 0.93rem;
+    line-height: 1.4;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
-.project-status {
+.project-status,
+.project-domain {
+    flex: 0 0 auto;
+    max-width: 132px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     background: rgba(0, 113, 227, 0.12);
     border: 1px solid rgba(0, 113, 227, 0.28);
     color: #2997ff;
@@ -547,6 +620,13 @@ button {
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.project-domain {
+    background: rgba(52, 199, 89, 0.13);
+    border-color: rgba(52, 199, 89, 0.32);
+    color: #7ee787;
 }
 
 .project-impact {
@@ -554,28 +634,54 @@ button {
     font-weight: 600;
 }
 
-.project-card p {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+.project-card .card-point {
+    min-height: 3.4em;
+    -webkit-line-clamp: 2;
 }
 
-.project-impact {
+.project-card .project-impact {
+    min-height: 3.4em;
+    color: var(--text);
+    font-weight: 600;
     -webkit-line-clamp: 2;
+}
+
+.project-card .tag-row {
+    align-content: flex-start;
+    max-height: 74px;
+    min-height: 74px;
+    overflow: hidden;
 }
 
 .project-thumb-frame {
     display: grid;
     place-items: center;
     overflow: hidden;
-    min-height: 140px;
+    min-height: 0;
+    height: 154px;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.10);
     background:
         radial-gradient(circle at 20% 18%, rgba(41, 151, 255, 0.18), transparent 32%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-    aspect-ratio: 16 / 10;
+}
+
+.project-thumb-frame[href] {
+    cursor: pointer;
+    transition:
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.project-thumb-frame[href]:hover,
+.project-thumb-frame[href]:focus-visible {
+    border-color: rgba(255, 255, 255, 0.24);
+    transform: translateY(-2px);
+}
+
+.project-thumb-frame[href]:focus-visible {
+    outline: 2px solid #2997ff;
+    outline-offset: 3px;
 }
 
 .project-thumb-icon {
@@ -583,10 +689,25 @@ button {
     color: #f5f5f7;
 }
 
+.project-card-footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 24px;
+}
+
 .project-links {
     display: flex;
     gap: 12px;
+    flex: 1 1 auto;
     flex-wrap: wrap;
+    align-content: flex-start;
+    min-width: 0;
+}
+
+.project-links-empty {
+    visibility: hidden;
 }
 
 .project-links a {
@@ -623,6 +744,20 @@ button {
 .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.cinematic-section,
+.reveal.cinematic-section,
+.reveal.is-visible.cinematic-section {
+    opacity: var(--cinematic-opacity, 1);
+    filter: blur(var(--cinematic-blur, 0));
+    transform: translate3d(0, var(--cinematic-translate, 0), 0) scale(var(--cinematic-scale, 1));
+    transform-origin: center center;
+    transition:
+        opacity 120ms linear,
+        filter 120ms linear,
+        transform 120ms linear;
+    will-change: opacity, filter, transform;
 }
 
 @media (max-width: 960px) {
@@ -678,6 +813,50 @@ button {
 
     .stack-marquee-inner {
         animation-duration: 20s;
+    }
+
+    .experience-card,
+    .education-card {
+        grid-template-rows: auto auto auto;
+        min-height: 0;
+    }
+
+    .experience-top,
+    .education-top {
+        display: grid;
+        min-height: 0;
+    }
+
+    .project-card {
+        grid-template-rows: 116px 3.4em 3.4em 74px 142px 24px;
+        min-height: 554px;
+    }
+
+    .project-thumb-frame {
+        height: 142px;
+    }
+
+    .project-status {
+        max-width: 42%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .project-status,
+    .project-domain {
+        max-width: 100%;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cinematic-section,
+    .reveal.cinematic-section,
+    .reveal.is-visible.cinematic-section {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
     }
 }
 

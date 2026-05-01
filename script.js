@@ -24,7 +24,7 @@ const experiences = [
         role: "Data Science Researcher",
         company: "University of Illinois Urbana-Champaign",
         summary:
-            "Built admissions and research workflows with Python and LLMs. Result: 10x faster review, 30% shorter timelines, and 40% lower operating cost.",
+            "10x faster review; 30% shorter timelines; 40% lower cost.",
         stack: ["Python", "LLMs", "Google ADK", "Workflow Automation", "Analytics"],
     },
     {
@@ -32,7 +32,7 @@ const experiences = [
         role: "Data Scientist",
         company: "CNeutral",
         summary:
-            "Built ESG extraction and retrieval systems for a $3T sovereign-fund workflow. Result: 90% better data quality and 40% faster analysis.",
+            "$3T ESG workflow; 90% cleaner data; 40% faster analysis.",
         stack: ["Python", "RAG", "PyMuPDF", "ChromaDB", "FAISS"],
     },
     {
@@ -40,7 +40,7 @@ const experiences = [
         role: "Machine Learning Engineer",
         company: "Technokart Consultancy Services",
         summary:
-            "Shipped document AI for compliance at scale. Result: 92% recall, 40% lower latency, 60% less audit work, and 96% uptime.",
+            "92% recall; 40% lower latency; 60% less audit work.",
         stack: ["YOLO", "OCR", "Whisper", "DistilBERT", "CI/CD", "AWS"],
     },
 ];
@@ -50,7 +50,7 @@ const education = [
         period: "August 2024 - May 2025",
         school: "University of Illinois Urbana-Champaign",
         degree: "Master of Science in Business Analytics",
-        detail: "Data Science Track",
+        detail: "Data Science, ML, and analytics.",
         tags: ["Business Analytics", "Data Science", "UIUC"],
     },
     {
@@ -66,12 +66,13 @@ const projects = [
     {
         title: "Lineage",
         category: "Applied AI",
+        domain: "Media AI",
         status: "Flagship",
         subtitle: "Narrative AI workspace for grounded character reasoning",
         about:
-            "A screenplay-aware RAG product that remembers time, context, and relationships.",
+            "Screenplay-aware RAG with temporal memory.",
         impact:
-            "Characters answer from what they know, when they know it.",
+            "Grounded answers by character and timeline.",
         tags: ["RAG", "FastAPI", "ChromaDB", "Retrieval"],
         thumb: "forum",
         links: [{ label: "Live Demo", url: "https://lineage-sooty.vercel.app" }],
@@ -79,12 +80,13 @@ const projects = [
     {
         title: "LocalPsych",
         category: "Applied AI",
+        domain: "Mental Health",
         status: "Research",
         subtitle: "Privacy-first local mental health assistant",
         about:
-            "Gemma 4 fine-tuned for empathetic, on-device guidance.",
+            "On-device Gemma assistant for private support.",
         impact:
-            "Private by default. Useful without the cloud.",
+            "Private by default; no cloud dependency.",
         tags: ["QLoRA", "Gemma 4", "PEFT", "Privacy"],
         thumb: "psychology",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/LocalPsych" }],
@@ -92,12 +94,13 @@ const projects = [
     {
         title: "MedPrompt",
         category: "Applied AI",
+        domain: "Healthcare",
         status: "Shipped POC",
         subtitle: "Zero-shot pathology segmentation POC",
         about:
-            "A pathology POC that pairs prompt-guided VLM reasoning with foundation segmentation.",
+            "VLM-guided pathology segmentation POC.",
         impact:
-            "Zero-shot region proposals. Faster review.",
+            "Zero-shot regions for faster review.",
         tags: ["Medical Imaging", "Segmentation", "VLM", "PyTorch"],
         thumb: "health_and_safety",
         links: [],
@@ -105,12 +108,13 @@ const projects = [
     {
         title: "Trash Lyrics",
         category: "Applied AI",
+        domain: "Creative AI",
         status: "NLP",
         subtitle: "Artist-style lyric generation with LSTMs",
         about:
-            "An early LSTM project for artist-style lyric generation.",
+            "LSTM lyric generation by artist style.",
         impact:
-            "Proof that model behavior can feel like product behavior.",
+            "Early proof of model behavior as UX.",
         tags: ["LSTM", "NLP", "Text Generation"],
         thumb: "music_note",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/Trash_Lyrics" }],
@@ -118,12 +122,13 @@ const projects = [
     {
         title: "Synchrony Credit Intelligence",
         category: "Forecasting & Risk",
+        domain: "FinTech",
         status: "Datathon",
         subtitle: "Forecasting, segmentation, fraud scoring, and credit recommendations",
         about:
-            "A credit decision engine across forecasting, fraud, segmentation, and limit recommendations.",
+            "Credit engine for spend, fraud, segments, limits.",
         impact:
-            "R² 0.9906 on spend forecasting. +$7.03M in upside.",
+            "R2 0.9906 forecast; +$7.03M upside.",
         tags: ["XGBoost", "DuckDB", "SHAP", "Risk"],
         thumb: "account_balance",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/CreditRiskManagement" }],
@@ -131,12 +136,13 @@ const projects = [
     {
         title: "Contact Center Forecasting",
         category: "Forecasting & Risk",
+        domain: "Workforce Ops",
         status: "Top-7",
         subtitle: "Hybrid interval-level staffing forecast system",
         about:
-            "Daily totals with XGBoost. Intraday shape by design.",
+            "XGBoost daily totals plus intraday shape.",
         impact:
-            "Top-7 finish. Better accuracy from cleaner data.",
+            "Top-7 finish from cleaner operations data.",
         tags: ["XGBoost", "Forecasting", "Operations"],
         thumb: "trending_up",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/WorkforcePlanning" }],
@@ -144,25 +150,41 @@ const projects = [
     {
         title: "Railway Wheel Failure Prediction",
         category: "Forecasting & Risk",
+        domain: "Rail",
         status: "Competition",
         subtitle: "30-day-ahead predictive maintenance for rail wheels",
         about:
-            "Predictive maintenance for rail wheels, 30 days out.",
+            "30-day rail-wheel failure prediction.",
         impact:
-            "Log-loss cut from 0.037 to 0.0299.",
+            "Log-loss improved 0.037 to 0.0299.",
         tags: ["CatBoost", "LightGBM", "XGBoost", "Sensors"],
         thumb: "train",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/RailwayWheelFailurePrediction" }],
     },
     {
+        title: "UpNext for Zerve",
+        category: "Analytics & Product",
+        domain: "SaaS Growth",
+        status: "2nd Place",
+        subtitle: "Upgrade-readiness scoring and monetization funnel",
+        about:
+            "3.5M+ events to upgrade scores and funnels.",
+        impact:
+            "2nd place; 505 high-probability users; 3.43x lift.",
+        tags: ["Random Forest", "Leakage Control", "Funnel Analytics", "Growth"],
+        thumb: "trending_up",
+        links: [{ label: "Live App", url: "https://upnext.hub.zerve.cloud" }],
+    },
+    {
         title: "Chicago Crime Analytics",
         category: "Analytics & Product",
+        domain: "Public Safety",
         status: "Dashboard",
         subtitle: "Serverless crime analytics at city scale",
         about:
             "City-scale crime analytics without a heavy backend.",
         impact:
-            "8M+ records. Under 10 MB.",
+            "8M+ records under 10 MB.",
         tags: ["Dash", "Plotly", "SoQL", "Visualization"],
         thumb: "location_city",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/Chicago-Crime-Analysis" }],
@@ -170,12 +192,13 @@ const projects = [
     {
         title: "CUMTD Live Dashboard",
         category: "Analytics & Product",
+        domain: "Transit",
         status: "Transit UX",
         subtitle: "Mini Metro-inspired real-time transit map for Champaign-Urbana MTD",
         about:
-            "A live CUMTD transit dashboard that combines GTFS, GTFS-Realtime, and MapLibre into a minimal rider-facing map experience.",
+            "Live GTFS-Realtime map for CUMTD riders.",
         impact:
-            "Turns raw bus telemetry into clearer boarding, crowding, and route context.",
+            "Clearer boarding, crowding, and route context.",
         tags: ["JavaScript", "MapLibre", "GTFS-Realtime", "Transit"],
         thumb: "directions_bus",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/cumtd_dash" }],
@@ -183,10 +206,11 @@ const projects = [
     {
         title: "MCU Actor Causal Impact Analysis",
         category: "Analytics & Product",
+        domain: "Media Analytics",
         status: "Causal",
         subtitle: "Difference-in-differences study on MCU career impact",
         about:
-            "A difference-in-differences study on how Marvel changes careers.",
+            "Difference-in-differences career impact study.",
         impact:
             "+1.91 log-point treatment effect.",
         tags: ["Causal Inference", "DiD", "Panel Data"],
@@ -196,12 +220,13 @@ const projects = [
     {
         title: "State Farm Fellowship Microsites",
         category: "Analytics & Product",
+        domain: "Enterprise Comms",
         status: "Product Storytelling",
         subtitle: "Branded speaker pages for UIUC and State Farm collaboration",
         about:
-            "Speaker microsites that turn technical talks into polished web narratives.",
+            "Speaker microsites for technical talks.",
         impact:
-            "Clearer storytelling for data science, GenAI, and digital transformation.",
+            "Sharper stories for GenAI and data science.",
         tags: ["HTML", "CSS", "Content Design"],
         thumb: "language",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/StateFarm_Fellowship_2025" }],
@@ -209,12 +234,13 @@ const projects = [
     {
         title: "Reddit Redesign",
         category: "Analytics & Product",
+        domain: "Consumer UX",
         status: "UX Strategy",
         subtitle: "Course project centered on platform and interface redesign",
         about:
-            "A product rethink, not a paint job.",
+            "Platform redesign from product strategy up.",
         impact:
-            "Useful proof of UX judgment alongside ML work.",
+            "UX judgment alongside ML depth.",
         tags: ["Product Design", "UX", "Strategy"],
         thumb: "palette",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/Reddit_Redesign_BADM390" }],
@@ -222,12 +248,13 @@ const projects = [
     {
         title: "OCR Automation for Logistics Invoices",
         category: "Vision & Automation",
+        domain: "Logistics",
         status: "Freelance",
         subtitle: "Document AI pipeline for invoice and customs paperwork",
         about:
-            "Document AI for invoices and customs paperwork.",
+            "Document AI for invoices and customs forms.",
         impact:
-            "Built for messy PDFs, not ideal demos.",
+            "Built for messy PDFs, not clean demos.",
         tags: ["Flask", "PyMuPDF", "OCR", "Automation"],
         thumb: "receipt_long",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/ocr_automation_siddhartha" }],
@@ -235,12 +262,13 @@ const projects = [
     {
         title: "Finger Anti-Spoof",
         category: "Vision & Automation",
+        domain: "Biometrics",
         status: "Capstone",
         subtitle: "Challenge-response liveness verification with gesture recognition",
         about:
             "Gesture-based liveness verification.",
         impact:
-            "Challenge-response, not just static classification.",
+            "Challenge-response over static classification.",
         tags: ["Computer Vision", "CNN", "OpenCV", "Biometrics"],
         thumb: "fingerprint",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/finger-anti-spoof" }],
@@ -248,10 +276,11 @@ const projects = [
     {
         title: "Transformer-Core",
         category: "Foundations",
+        domain: "ML Systems",
         status: "Engineering",
         subtitle: "Attention implementations from pedagogy to production",
         about:
-            "Attention, rebuilt from first principles to production form.",
+            "Attention rebuilt from first principles.",
         impact:
             "Parity-tested against PyTorch.",
         tags: ["PyTorch", "Transformers", "Attention", "Testing"],
@@ -261,12 +290,13 @@ const projects = [
     {
         title: "GitHub Organization Scraper",
         category: "Foundations",
+        domain: "Developer Tools",
         status: "Automation",
         subtitle: "Open-source org intelligence via the GitHub API",
         about:
-            "Organization discovery and repo intelligence from the GitHub API.",
+            "Org discovery and repo intelligence.",
         impact:
-            "Rejects fake orgs before collection starts.",
+            "Rejects fake orgs before collection.",
         tags: ["GitHub API", "Python", "Data Collection"],
         thumb: "code",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/GitHub_Innovation" }],
@@ -274,12 +304,13 @@ const projects = [
     {
         title: "ML Concepts",
         category: "Foundations",
+        domain: "Education",
         status: "Teaching",
         subtitle: "Notebook series on machine learning foundations",
         about:
-            "A teaching series for the math behind ML.",
+            "Notebook series for ML foundations.",
         impact:
-            "Shows fluency in explanation, not just implementation.",
+            "Shows explanation, not just implementation.",
         tags: ["Machine Learning", "Education", "Notebooks"],
         thumb: "school",
         links: [{ label: "GitHub", url: "https://github.com/manastokale/ML_Concepts" }],
@@ -294,7 +325,12 @@ const categoryOrder = [
     "Foundations",
 ];
 
+function renderPoint(text, className = "") {
+    return `<p class="card-point${className ? ` ${className}` : ""}">${text}</p>`;
+}
+
 let carouselResizeObserver;
+let cinematicScrollFrame;
 
 function updateCarouselAffordance(carousel) {
     const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
@@ -329,9 +365,75 @@ function setupCarouselAffordances() {
     });
 }
 
+function setupCinematicScroll() {
+    const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sections = Array.from(document.querySelectorAll(".hero-panel, .rail-section, .contact-section"));
+
+    if (!sections.length) {
+        return;
+    }
+
+    sections.forEach((section) => section.classList.add("cinematic-section"));
+
+    function clearCinematicStyles() {
+        sections.forEach((section) => {
+            section.style.removeProperty("--cinematic-opacity");
+            section.style.removeProperty("--cinematic-scale");
+            section.style.removeProperty("--cinematic-translate");
+            section.style.removeProperty("--cinematic-blur");
+        });
+    }
+
+    function updateCinematicScroll() {
+        cinematicScrollFrame = 0;
+
+        if (reduceMotionQuery.matches) {
+            clearCinematicStyles();
+            return;
+        }
+
+        const viewportHeight = Math.max(window.innerHeight, 1);
+        const viewportCenter = viewportHeight * 0.52;
+
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const sectionCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(sectionCenter - viewportCenter);
+            const range = Math.max(viewportHeight * 0.58, rect.height * 0.72);
+            const rawProgress = Math.max(0, 1 - distance / range);
+            const progress = rawProgress * rawProgress * (3 - 2 * rawProgress);
+            const direction = sectionCenter < viewportCenter ? -1 : 1;
+
+            section.style.setProperty("--cinematic-opacity", (0.92 + progress * 0.08).toFixed(3));
+            section.style.setProperty("--cinematic-scale", (0.988 + progress * 0.012).toFixed(4));
+            section.style.setProperty("--cinematic-translate", `${((1 - progress) * 12 * direction).toFixed(2)}px`);
+            section.style.setProperty("--cinematic-blur", `${((1 - progress) * 0.25).toFixed(2)}px`);
+        });
+    }
+
+    function requestCinematicUpdate() {
+        if (!cinematicScrollFrame) {
+            cinematicScrollFrame = window.requestAnimationFrame(updateCinematicScroll);
+        }
+    }
+
+    requestCinematicUpdate();
+    window.addEventListener("scroll", requestCinematicUpdate, { passive: true });
+    window.addEventListener("resize", requestCinematicUpdate);
+
+    if (reduceMotionQuery.addEventListener) {
+        reduceMotionQuery.addEventListener("change", requestCinematicUpdate);
+    }
+}
+
 function renderSkills() {
     const primary = document.getElementById("skills-rail-primary");
     const secondary = document.getElementById("skills-rail-secondary");
+
+    if (!primary || !secondary) {
+        return;
+    }
+
     const markup = skills.map((skill) => `<span class="pill">${skill}</span>`).join("");
 
     primary.innerHTML = markup;
@@ -340,6 +442,11 @@ function renderSkills() {
 
 function renderExperiences() {
     const container = document.getElementById("experience-list");
+
+    if (!container) {
+        return;
+    }
+
     container.innerHTML = experiences
         .map(
             (experience) => `
@@ -351,7 +458,7 @@ function renderExperiences() {
                         </div>
                         <div class="experience-period">${experience.period}</div>
                     </div>
-                    <p>${experience.summary}</p>
+                    ${renderPoint(experience.summary)}
                     <div class="tag-row">
                         ${experience.stack.map((item) => `<span class="tag">${item}</span>`).join("")}
                     </div>
@@ -363,6 +470,11 @@ function renderExperiences() {
 
 function renderEducation() {
     const container = document.getElementById("education-list");
+
+    if (!container) {
+        return;
+    }
+
     container.innerHTML = education
         .map(
             (item) => `
@@ -374,7 +486,7 @@ function renderEducation() {
                         </div>
                         <div class="education-period">${item.period}</div>
                     </div>
-                    ${item.detail ? `<p>${item.detail}</p>` : ""}
+                    ${item.detail ? renderPoint(item.detail) : '<p class="card-point card-point-empty" aria-hidden="true"></p>'}
                     <div class="tag-row">
                         ${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
                     </div>
@@ -384,16 +496,38 @@ function renderEducation() {
         .join("");
 }
 
+function getProjectGithubLink(project) {
+    return project.links.find(
+        (link) => link.label.toLowerCase() === "github" || link.url.includes("github.com"),
+    );
+}
+
 function renderProjectThumb(project) {
+    const githubLink = getProjectGithubLink(project);
+    const content = `<span class="material-symbols-outlined project-thumb-icon">${project.thumb}</span>`;
+
+    if (githubLink) {
+        return `
+            <a class="project-thumb-frame" href="${githubLink.url}" target="_blank" rel="noreferrer"
+                aria-label="Open ${project.title} GitHub repository">
+                ${content}
+            </a>
+        `;
+    }
+
     return `
         <div class="project-thumb-frame" aria-hidden="true">
-            <span class="material-symbols-outlined project-thumb-icon">${project.thumb}</span>
+            ${content}
         </div>
     `;
 }
 
 function renderProjectSections() {
     const container = document.getElementById("project-sections");
+
+    if (!container) {
+        return;
+    }
 
     container.innerHTML = categoryOrder
         .map((category) => {
@@ -414,29 +548,33 @@ function renderProjectSections() {
                         (project) => `
                                     <article class="project-card">
                                         <div class="project-top">
-                                            <div>
+                                            <div class="project-title-block">
                                                 <h3>${project.title}</h3>
                                                 <div class="project-subtitle">${project.subtitle}</div>
                                             </div>
                                             <span class="project-status">${project.status}</span>
                                         </div>
-                                        <p>${project.about}</p>
-                                        <p class="project-impact">${project.impact}</p>
+                                        ${renderPoint(project.about)}
+                                        ${renderPoint(project.impact, "project-impact")}
                                         <div class="tag-row">
                                             ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
                                         </div>
                                         ${renderProjectThumb(project)}
-                                        ${project.links.length
-                                ? `<div class="project-links">
-                                                    ${project.links
-                                    .map(
-                                        (link) =>
-                                            `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`,
-                                    )
-                                    .join("")}
-                                                </div>`
-                                : ""
-                            }
+                                        <div class="project-card-footer">
+                                            <div class="project-links${project.links.length ? "" : " project-links-empty"}">
+                                                ${project.links
+                                .map(
+                                    (link) => {
+                                        const externalAttrs = link.url.startsWith("http")
+                                            ? ' target="_blank" rel="noreferrer"'
+                                            : "";
+                                        return `<a href="${link.url}"${externalAttrs}>${link.label}</a>`;
+                                    },
+                                )
+                                .join("")}
+                                            </div>
+                                            <span class="project-domain">${project.domain}</span>
+                                        </div>
                                     </article>
                                 `,
                     )
@@ -477,3 +615,4 @@ renderEducation();
 renderProjectSections();
 activateRevealObserver();
 setupCarouselAffordances();
+setupCinematicScroll();
